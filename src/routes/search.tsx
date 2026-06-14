@@ -73,6 +73,23 @@ function isFuzzyMatch(word: string, target: string, threshold = 2): boolean {
 function SearchPage() {
   const { q = "", category = "" } = Route.useSearch();
   const [selectedProduct, setSelectedProduct] = useState<FirestoreProduct | null>(null);
+
+  const handleSelectProduct = (product: FirestoreProduct) => {
+    // Preload first image so it's in browser cache when modal opens
+    const firstImg = Array.isArray(product.images)
+      ? product.images[0]
+      : product.images && typeof product.images === "object"
+      ? Object.values(product.images)[0]?.[0]
+      : product.image;
+    if (firstImg) {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = firstImg;
+      document.head.appendChild(link);
+    }
+    setSelectedProduct(product);
+  };
   const [sortBy, setSortBy] = useState<"relevance" | "price_asc" | "price_desc" | "rating">("relevance");
   const [maxPrice, setMaxPrice] = useState<number>(5000);
 
@@ -284,7 +301,7 @@ function SearchPage() {
                         }}
                         index={i}
                         isSelected={selectedProduct?.id === p.id}
-                        onSelect={() => setSelectedProduct(p)}
+                        onSelect={() => handleSelectProduct(p)}
                         isWishlisted={isWishlisted}
                         toggleWishlist={toggleWishlist}
                       />
@@ -334,7 +351,7 @@ function SearchPage() {
                     }}
                     index={i}
                     isSelected={selectedProduct?.id === p.id}
-                    onSelect={() => setSelectedProduct(p)}
+                    onSelect={() => handleSelectProduct(p)}
                     isWishlisted={isWishlisted}
                     toggleWishlist={toggleWishlist}
                   />

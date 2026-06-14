@@ -147,6 +147,7 @@ export function useProducts() {
       return items;
     },
     staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 30, // keep data in memory 30 minutes
     refetchOnWindowFocus: false,
   });
 }

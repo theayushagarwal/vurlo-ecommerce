@@ -173,12 +173,14 @@ export function ProductCard({
                 src={imgSrc}
                 alt={p.name}
                 loading="lazy"
+                decoding="async"
                 className="pcard__img absolute inset-0 w-full h-full object-cover"
                 style={{
                   ...getAdjustmentStyle(mainImage),
                   filter: imgLoaded ? "blur(0px)" : "blur(8px)",
                   transform: imgLoaded ? "scale(1)" : "scale(1.04)",
-                  transition: "filter 0.5s ease, transform 0.5s ease",
+                  opacity: imgLoaded ? 1 : 0,
+                  transition: "filter 0.15s ease, transform 0.15s ease, opacity 0.15s ease",
                 }}
                 onLoad={() => setImgLoaded(true)}
                 onError={() => { setImgSrc(resolveProductImage("", p.name)); setImgLoaded(true); }}

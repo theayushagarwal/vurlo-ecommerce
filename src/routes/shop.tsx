@@ -47,6 +47,23 @@ const CATEGORIES = ["All", "Lamps", "Projectors", "RGB", "Decor"];
 function ShopPage() {
   const { category, sort = "featured", sale } = Route.useSearch();
   const [selectedProduct, setSelectedProduct] = useState<FirestoreProduct | null>(null);
+
+  const handleSelectProduct = (product: FirestoreProduct) => {
+    // Preload first image so it's in browser cache when modal opens
+    const firstImg = Array.isArray(product.images)
+      ? product.images[0]
+      : product.images && typeof product.images === "object"
+      ? Object.values(product.images)[0]?.[0]
+      : product.image;
+    if (firstImg) {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = firstImg;
+      document.head.appendChild(link);
+    }
+    setSelectedProduct(product);
+  };
   const [sortBy, setSortBy] = useState<string>(sort);
   const [maxPrice, setMaxPrice] = useState<number>(5000);
   const [activeCategory, setActiveCategory] = useState<string>(category || "All");
@@ -213,7 +230,7 @@ function ShopPage() {
                     }}
                     index={i}
                     isSelected={selectedProduct?.id === p.id}
-                    onSelect={() => setSelectedProduct(p)}
+                    onSelect={() => handleSelectProduct(p)}
                     isWishlisted={isWishlisted}
                     toggleWishlist={toggleWishlist}
                   />

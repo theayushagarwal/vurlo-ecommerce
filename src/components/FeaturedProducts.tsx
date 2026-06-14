@@ -26,6 +26,23 @@ export function FeaturedProducts({ category, sale }: FeaturedProductsProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProduct, setSelectedProduct] = useState<FirestoreProduct | null>(null);
 
+  const handleSelectProduct = (product: FirestoreProduct) => {
+    // Preload first image so it's in browser cache when modal opens
+    const firstImg = Array.isArray(product.images)
+      ? product.images[0]
+      : product.images && typeof product.images === "object"
+      ? Object.values(product.images)[0]?.[0]
+      : product.image;
+    if (firstImg) {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = firstImg;
+      document.head.appendChild(link);
+    }
+    setSelectedProduct(product);
+  };
+
   const { data: dbProducts = [], isLoading, isError, error } = useProducts();
   const { toggleWishlist, isWishlisted } = useWishlist();
 
@@ -42,7 +59,7 @@ export function FeaturedProducts({ category, sale }: FeaturedProductsProps) {
         const id = hash.replace("#product-", "");
         const prod = dbProducts.find((p) => p.id === id);
         if (prod) {
-          setSelectedProduct(prod);
+          handleSelectProduct(prod);
         }
       }
     };
@@ -274,7 +291,7 @@ export function FeaturedProducts({ category, sale }: FeaturedProductsProps) {
           <ProductGrid
             products={filteredProducts}
             selectedProduct={selectedProduct}
-            onSelectProduct={setSelectedProduct}
+            onSelectProduct={handleSelectProduct}
             isWishlisted={isWishlisted}
             toggleWishlist={toggleWishlist}
           />

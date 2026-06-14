@@ -57,6 +57,7 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
   }, [product.variantPrices, product.originalPrice, selectedVariant]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imgError, setImgError] = useState(false);
+  const [mainImgLoaded, setMainImgLoaded] = useState(false);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitting, setNotifySubmitting] = useState(false);
   const [notifyDone, setNotifyDone] = useState(false);
@@ -85,11 +86,13 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
     setCurrentImageIndex(0);
     setSelectedVariant(getInitialVariant());
     setImgError(false);
+    setMainImgLoaded(false);
   }, [product?.id, getInitialVariant]);
 
   // RULE 7 — Reset imgError whenever currentImage changes
   useEffect(() => {
     setImgError(false);
+    setMainImgLoaded(false);
   }, [currentImage]);
 
   // RULE 5 — VARIANT SWITCHING HANDLER
@@ -193,13 +196,23 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
               }}
             />
             {/* 7. IMAGE RENDERING (Main image) */}
-            <img
-              src={imgError || !currentImage ? resolveProductImage("", product.name) : currentImage}
-              alt={product.name}
-              onError={handleImgError}
-              className="max-w-full max-h-full object-contain relative z-10 rounded-xl"
-              loading="eager"
-            />
+            <div className="relative w-full aspect-square bg-white/[0.03] rounded-2xl overflow-hidden flex items-center justify-center">
+              {!mainImgLoaded && (
+                <div className="absolute inset-0 animate-pulse bg-white/[0.06] rounded-2xl" />
+              )}
+              <img
+                src={imgError || !currentImage ? resolveProductImage("", product.name) : currentImage}
+                alt={product.name}
+                onError={handleImgError}
+                onLoad={() => setMainImgLoaded(true)}
+                className="max-w-full max-h-full object-contain relative z-10 rounded-xl"
+                loading="eager"
+                style={{
+                  opacity: mainImgLoaded ? 1 : 0,
+                  transition: "opacity 0.2s ease",
+                }}
+              />
+            </div>
           </div>
 
           {/* 8. THUMBNAILS */}
