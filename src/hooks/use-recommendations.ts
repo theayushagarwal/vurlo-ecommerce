@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { FirestoreProduct } from "@/hooks/use-products";
 import { getLocalRecommendations } from "@/lib/recommendations";
 
@@ -9,10 +9,16 @@ import { getLocalRecommendations } from "@/lib/recommendations";
  */
 export function useRecommendations(
   currentProduct: FirestoreProduct | undefined,
-  allProducts: FirestoreProduct[]
+  allProducts: FirestoreProduct[],
+  enabled = true
 ) {
   const [recommendations, setRecommendations] = useState<FirestoreProduct[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const localResults = useMemo(() => {
+    if (!currentProduct || allProducts.length === 0) return [];
+    return getLocalRecommendations(currentProduct, allProducts);
+  }, [currentProduct?.id, allProducts.length]);
 
   useEffect(() => {
     if (!currentProduct || !allProducts || allProducts.length === 0) {
@@ -21,26 +27,36 @@ export function useRecommendations(
       return;
     }
 
-    // Narrow currentProduct into a stable local const so TS preserves the
-    // non-undefined type inside the nested async function below.
     const product = currentProduct;
 
-    // 1. Immediately compute local recommendations
-    const localResults = getLocalRecommendations(product, allProducts);
+    // Set local recommendations immediately
     setRecommendations(localResults);
-    setLoading(true);
 
+    if (!enabled) return;
+
+    setLoading(true);
     let isMounted = true;
 
     // 2. In background, POST to /api/ai-recommend
     async function fetchAiRecommendations() {
       try {
+        const condensedCatalog = allProducts
+          .filter(p => p.active !== false && p.id !== product.id)
+          .map(p => ({
+            id: p.id,
+            name: p.name,
+            category: p.category,
+            tags: p.tags,
+            price: p.price,
+            accent: p.accent,
+          }));
+
         const response = await fetch("/api/ai-recommend", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ currentProduct: product, allProducts }),
+          body: JSON.stringify({ currentProduct: product, allProducts: condensedCatalog }),
         });
 
         if (!response.ok) {
@@ -100,7 +116,7 @@ export function useRecommendations(
     return () => {
       isMounted = false;
     };
-  }, [currentProduct, allProducts]);
+  }, [currentProduct?.id, allProducts.length, enabled, localResults]);
 
   return { recommendations, loading };
 }

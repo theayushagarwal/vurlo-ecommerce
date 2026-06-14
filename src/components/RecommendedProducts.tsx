@@ -4,6 +4,7 @@ import { ProductCard } from "./ProductCard";
 import { useRecommendations } from "@/hooks/use-recommendations";
 import { FirestoreProduct } from "@/hooks/use-products";
 import { getProductImage } from "@/utils/product";
+import { useRef, useState, useEffect } from "react";
 
 interface RecommendedProductsProps {
   currentProduct: FirestoreProduct;
@@ -21,7 +22,21 @@ export function RecommendedProducts({
   allProducts,
   isModal,
 }: RecommendedProductsProps) {
-  const { recommendations } = useRecommendations(currentProduct, allProducts);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const { recommendations } = useRecommendations(currentProduct, allProducts, isVisible);
   const { toggleWishlist, isWishlisted } = useWishlist();
 
   if (recommendations.length === 0) {
@@ -29,7 +44,12 @@ export function RecommendedProducts({
   }
 
   return (
-    <section className={`relative px-4 py-10 sm:px-6 sm:py-16 md:py-20 border-t border-white/[0.06] ${isModal ? "mt-8" : "mx-auto max-w-7xl mt-16"}`}>
+    <section
+      ref={sectionRef}
+      className={`relative px-4 py-10 sm:px-6 sm:py-16 md:py-20 border-t border-white/[0.06] ${
+        isModal ? "mt-8" : "mx-auto max-w-7xl mt-16"
+      }`}
+    >
       {/* Background glow overlay */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div
