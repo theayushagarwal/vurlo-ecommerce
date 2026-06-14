@@ -217,7 +217,7 @@ export function Hero() {
             />
 
             <img
-              src="/aura-rgb-1.png"
+              src="/aura-rgb-1.webp"
               alt="Vurlo RGB Ambience Setup"
               className="hero-product-premium"
               style={{
