@@ -102,16 +102,11 @@ function ScrollProgressBar() {
 }
 
 import { CookieConsent } from "@/components/CookieConsent";
-import { loadAnalytics } from "@/lib/load-analytics";
 
-const ChatWidget = lazy(() => import("@/components/ChatWidget"));
+// const ChatWidget = lazy(() => import("@/components/ChatWidget"));
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
-  useEffect(() => {
-    loadAnalytics();
-  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -123,9 +118,9 @@ function RootComponent() {
               <Outlet />
               <Toaster />
               <CookieConsent />
-              <Suspense fallback={null}>
+              {/* <Suspense fallback={null}>
                 <ChatWidget />
-              </Suspense>
+              </Suspense> */}
             </NotificationsProvider>
           </WishlistProvider>
         </CartProvider>
