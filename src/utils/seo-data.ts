@@ -309,30 +309,31 @@ export const PRODUCT_SEO_DATA: Record<string, SeoProductData> = {
 
   "infinity-bloom-lamp": {
     displayName: "Infinity Bloom Lamp",
-    seoTitle: "Vurlo Infinity Bloom Lamp – Tulip Infinity Mirror Night Light | Rectangle & Cloud",
-    metaTitle: "Tulip Infinity Mirror Lamp – Rectangle & Cloud Shape | Handcrafted Bedroom Decor | Vurlo",
+    seoTitle: "Vurlo Infinity Bloom Lamp – Tulip Night Light | Rectangle, Cloud & Glass Dome",
+    metaTitle: "Tulip Infinity Mirror & Dome Lamp – 3 Shapes | Handcrafted Bedroom Decor | Vurlo",
     metaDescription:
-      "Buy Vurlo Infinity Bloom Lamp in Rectangle or Cloud shape. Infinity mirror optical illusion with handcrafted glowing tulips. Best aesthetic room decor gift in India.",
+      "Buy Vurlo Infinity Bloom Lamp in Rectangle, Cloud, or Glass Dome. Handcrafted glowing tulips, warm LED glow, perfect aesthetic room decor and gift in India. ₹499 onwards.",
     description:
-      "Choose your shape, keep the magic. The Infinity Bloom Lamp comes in two dreamy forms — the classic Rectangle cube, where double-sided mirrors create an endless glowing tulip field and doubles as a desktop vanity mirror, and the new Cloud shape, a premium cloud-frame with infinity mirror interior and warm tulip glow perfect for bedrooms and gifting. Both are USB powered, handcrafted, and built to make any space feel like a dream.",
+      "Three shapes, one magical lamp. The Infinity Bloom Lamp comes in Rectangle (classic infinity mirror cube that doubles as a vanity mirror), Cloud (cloud-shaped frame with endless tulip reflection inside), and Glass Dome (premium glass globe terrarium with natural wood base and crystal pebbles). All three feature handcrafted glowing tulips, warm LED ambient light, and USB power. Pick your favourite shape and bring a dreamy floral glow to any room.",
     useCases: [
-      "Bedroom nightstand ambient flower lamp",
+      "Bedroom nightstand warm ambient flower lamp",
       "Cozy vanity table mirror and decorative desk light (Rectangle)",
-      "Dreamy shelf or window sill decor piece (Cloud)",
+      "Dreamy shelf, window sill, or bookcase decor (Cloud & Dome)",
       "Premium gift for birthdays, anniversaries, and room decor lovers",
+      "Study desk aesthetic accent light",
     ],
     whyBuy: [
-      "Two shapes — Rectangle cube or Cloud frame, same magical tulip infinity effect",
-      "Stunning infinity mirror illusion — endless glowing tulip rows",
+      "3 unique shapes — Rectangle, Cloud, Glass Dome — same magical tulip glow",
+      "Infinity mirror illusion (Rectangle & Cloud) — endless glowing tulip rows",
       "Rectangle is a 2-in-1: ambient lamp + desktop vanity mirror when off",
-      "Handcrafted warm aesthetic, perfect for gifting and bedroom styling",
-      "USB powered — no batteries, works anywhere",
+      "Glass Dome: premium terrarium aesthetic with natural wood base and crystals",
+      "Handcrafted warm tulips, USB powered, no heat, no batteries needed",
     ],
     faqs: [
       {
         question: "What shapes are available?",
         answer:
-          "Two shapes: Rectangle (classic cube infinity mirror that also works as a desktop vanity mirror when off) and Cloud (cloud-shaped frame with infinity tulip field inside). Select your preferred shape before adding to cart.",
+          "Three shapes: Rectangle (infinity mirror cube), Cloud (cloud frame with infinity mirror interior), and Glass Dome (glass globe terrarium with wooden base). Select your shape before adding to cart.",
       },
       {
         question: "What does the Rectangle lamp look like when off?",
@@ -340,19 +341,24 @@ export const PRODUCT_SEO_DATA: Record<string, SeoProductData> = {
           "The cube sides become highly reflective mirrors — a stylish functional desktop vanity mirror.",
       },
       {
-        question: "What does the Cloud lamp look like when off?",
+        question: "What is the Glass Dome made of?",
         answer:
-          "The cloud frame and mirror interior remain as a decorative accent piece — a beautiful shelf or desk ornament even without the light on.",
+          "A clear glass globe dome, natural wood circular base, decorative crystal pebbles at the base, and handcrafted warm LED tulips inside. No infinity mirror — purely a terrarium/globe aesthetic.",
+      },
+      {
+        question: "Can the Glass Dome cover be removed?",
+        answer:
+          "Yes — the dome lifts off the wooden base, making it easy to clean or rearrange the tulips inside.",
       },
       {
         question: "Are the tulips real flowers?",
         answer:
-          "No — high-quality handcrafted artificial tulips lit from below by durable warm LEDs, glowing indefinitely.",
+          "No — high-quality handcrafted artificial tulips lit by durable warm LEDs, glowing indefinitely without wilting.",
       },
       {
         question: "How is it powered?",
         answer:
-          "USB powered — connect to any standard charger, adapter, computer port, or power bank.",
+          "USB powered — connect to any standard charger, adapter, computer port, or power bank. No batteries needed.",
       },
       {
         question: "Is there any heat from the lamp?",
