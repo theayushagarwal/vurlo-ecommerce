@@ -40,6 +40,7 @@ export interface FirestoreProduct {
   defaultVariant?: string;
   displayName?: string;
   seoTitle?: string;
+  variantPrices?: Record<string, { price: number; originalPrice?: number }>;
 }
 
 /**
@@ -139,6 +140,7 @@ export function useProducts() {
           tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
           variants,
           defaultVariant,
+          variantPrices: data.variantPrices as Record<string, { price: number; originalPrice?: number }> | undefined,
         });
       });
 

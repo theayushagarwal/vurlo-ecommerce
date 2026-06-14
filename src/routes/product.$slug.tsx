@@ -130,6 +130,20 @@ function ProductDetailPage() {
 
   // ── Local state ──────────────────────────────────────────────────────────
   const [selectedVariant, setSelectedVariant] = useState("");
+
+  const activePrice = useMemo(() => {
+    if (product?.variantPrices && selectedVariant && product.variantPrices[selectedVariant]) {
+      return product.variantPrices[selectedVariant].price;
+    }
+    return product?.price ?? 0;
+  }, [product?.variantPrices, product?.price, selectedVariant]);
+
+  const activeOriginalPrice = useMemo(() => {
+    if (product?.variantPrices && selectedVariant && product.variantPrices[selectedVariant]) {
+      return product.variantPrices[selectedVariant].originalPrice ?? product.originalPrice;
+    }
+    return product?.originalPrice;
+  }, [product?.variantPrices, product?.originalPrice, selectedVariant]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imgError, setImgError] = useState(false);
   const [addingToCart, setAddingToCart] = useState(false);
@@ -484,11 +498,11 @@ function ProductDetailPage() {
                 <div className="space-y-4">
                   <div className="flex items-baseline gap-3">
                     <p className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-300">
-                      ₹{formatPrice(product.price)}
+                      ₹{formatPrice(activePrice)}
                     </p>
-                    {onSale && product.originalPrice && (
+                    {onSale && activeOriginalPrice && (
                       <p className="text-sm text-white/30 line-through font-semibold">
-                        ₹{formatPrice(product.originalPrice)}
+                        ₹{formatPrice(activeOriginalPrice)}
                       </p>
                     )}
                   </div>

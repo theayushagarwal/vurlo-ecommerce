@@ -41,6 +41,20 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
   }, [hasVariants, product?.images, product?.defaultVariant]);
 
   const [selectedVariant, setSelectedVariant] = useState(getInitialVariant);
+
+  const activePrice = useMemo(() => {
+    if (product.variantPrices && selectedVariant && product.variantPrices[selectedVariant]) {
+      return product.variantPrices[selectedVariant].price;
+    }
+    return product.price;
+  }, [product.variantPrices, product.price, selectedVariant]);
+
+  const activeOriginalPrice = useMemo(() => {
+    if (product.variantPrices && selectedVariant && product.variantPrices[selectedVariant]) {
+      return product.variantPrices[selectedVariant].originalPrice ?? product.originalPrice;
+    }
+    return product.originalPrice;
+  }, [product.variantPrices, product.originalPrice, selectedVariant]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imgError, setImgError] = useState(false);
   const [notifyEmail, setNotifyEmail] = useState("");
@@ -96,7 +110,7 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
       await addToCart({
         productId: product.id,
         name: hasVariants ? `${product.name} (${selectedVariant})` : product.name,
-        price: product.price,
+        price: activePrice,
         image: resolvedImages[0] || resolveProductImage("", product.name),
       });
       onClose();
@@ -281,11 +295,11 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
                   className="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-300"
                   style={{ textShadow: `0 0 20px rgba(var(--accent-rgb), 0.2)` }}
                 >
-                  ₹{formatPrice(product.price)}
+                  ₹{formatPrice(activePrice)}
                 </p>
-                {product.isOnSale && product.originalPrice && (
+                {product.isOnSale && activeOriginalPrice && (
                   <p className="text-xs text-white/30 line-through font-semibold">
-                    ₹{formatPrice(product.originalPrice)}
+                    ₹{formatPrice(activeOriginalPrice)}
                   </p>
                 )}
               </div>
