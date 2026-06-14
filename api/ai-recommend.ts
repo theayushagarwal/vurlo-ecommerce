@@ -56,7 +56,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const prompt = `You are a product recommendation engine for an RGB lighting/decor store called Vurlo. Given this current product: ${JSON.stringify(condensedCurrent)} and this catalog: ${JSON.stringify(condensedCatalog)}, return ONLY a JSON array of up to 4 product 'id' strings from the catalog (excluding the current product's id) that would pair well aesthetically or functionally with the current product. Output ONLY the JSON array, nothing else, no markdown.`;
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`;
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 2500);
@@ -64,7 +64,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
       const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": apiKey,
+        },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: { temperature: 0.4, maxOutputTokens: 200 },
