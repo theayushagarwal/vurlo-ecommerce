@@ -94,10 +94,13 @@ export function ProductCard({
       return p.images[0] || p.img || "";
     }
     if (p.images && typeof p.images === "object") {
-      const defVar = (p.defaultVariant || "Galaxy").toLowerCase();
-      const varImages =
-        (p.images as Record<string, string[]>)[defVar] || Object.values(p.images)[0] || [];
-      return varImages[0] || p.img || "";
+      const imagesMap = p.images as Record<string, string[]>;
+      const defVarRaw = p.defaultVariant || "";
+      const defVarKey = Object.keys(imagesMap).find(
+        (k) => k.toLowerCase() === defVarRaw.toLowerCase()
+      ) || Object.keys(imagesMap)[0] || "";
+      const variantImages = imagesMap[defVarKey] || Object.values(imagesMap)[0] || [];
+      return variantImages[0] || p.img || "";
     }
     return p.img || "";
   })();
