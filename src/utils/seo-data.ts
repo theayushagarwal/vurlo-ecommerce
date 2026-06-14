@@ -367,4 +367,60 @@ export const PRODUCT_SEO_DATA: Record<string, SeoProductData> = {
       },
     ],
   },
+
+  "luminary-bonsai-tree-lamp": {
+    displayName: "Luminary Bonsai Tree Lamp",
+    seoTitle: "Vurlo Luminary Bonsai Tree Lamp – LED Fairy Light Tree for Aesthetic Bedroom Decor",
+    metaTitle: "LED Bonsai Tree Lamp – Fairy Light Tree for Bedroom & Desk Decor | Vurlo",
+    metaDescription:
+      "Buy Vurlo Luminary Bonsai Tree Lamp. 108 warm LED pearl lights on bendable gold branches, touch base, USB powered. Best aesthetic room decor gift in India. ₹699.",
+    description:
+      "Bring a magical forest glow into your room with the Vurlo Luminary Bonsai Tree Lamp. Featuring 108 warm white LED pearl lights across gracefully bendable gold wire branches, this lamp creates a dreamy, cozy atmosphere unlike anything else. Shape the branches however you like — every arrangement looks stunning. The touch-sensitive base makes it effortless to switch on and off, and dual USB + battery power means you can place it anywhere. Whether it's on your bedside table, study desk, vanity, or shelf, the Luminary Bonsai adds an instant warm glow and a conversation-starting centrepiece to any aesthetic room setup. Comes in premium gift packaging — the perfect birthday, anniversary, or housewarming gift.",
+    useCases: [
+      "Bedside nightstand warm ambient accent lamp",
+      "Study desk or vanity aesthetic decor piece",
+      "Shelf, bookcase, or window sill decorative light",
+      "Premium gift for birthdays, anniversaries, and housewarming",
+      "Photography and content creation background prop",
+    ],
+    whyBuy: [
+      "108 warm LED pearls on bendable gold branches — shape it your way",
+      "Touch base on/off — no fumbling for switches in the dark",
+      "Dual power: USB + AA battery backup, place it anywhere",
+      "Comes in premium gift packaging with USB cable included",
+      "Warm cozy glow, zero heat, completely safe for all ages",
+    ],
+    faqs: [
+      {
+        question: "Can I reshape the branches?",
+        answer:
+          "Yes — all branches are made of flexible gold wire and can be bent and reshaped freely. Every arrangement looks unique and beautiful.",
+      },
+      {
+        question: "How is it powered?",
+        answer:
+          "Dual power — USB cable (included) or AA batteries, giving you full flexibility to place it anywhere, even without a nearby socket.",
+      },
+      {
+        question: "Does it get hot?",
+        answer:
+          "No — energy-efficient warm LEDs produce zero heat, making it completely safe to touch and leave on overnight.",
+      },
+      {
+        question: "What is the height of the tree?",
+        answer:
+          "Approximately 45-50cm tall, making it a perfect tabletop statement piece without being overwhelming.",
+      },
+      {
+        question: "Is it good as a gift?",
+        answer:
+          "Absolutely — it comes in premium gift-ready packaging with a USB cable included. Perfect for birthdays, anniversaries, Valentine's Day, and housewarming gifts.",
+      },
+      {
+        question: "How many LEDs does it have?",
+        answer:
+          "108 warm white LED pearl lights spread across all branches for a full, lush glowing effect.",
+      },
+    ],
+  },
 };
