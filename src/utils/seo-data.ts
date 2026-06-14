@@ -309,27 +309,40 @@ export const PRODUCT_SEO_DATA: Record<string, SeoProductData> = {
 
   "infinity-bloom-lamp": {
     displayName: "Infinity Bloom Lamp",
-    seoTitle: "Vurlo Infinity Bloom Lamp – Handmade Tulip Infinity Mirror Ambient Night Light",
-    metaTitle: "Tulip Infinity Mirror Lamp – Handcrafted Ambient Bedroom Decor Night Light | Vurlo",
+    seoTitle: "Vurlo Infinity Bloom Lamp – Tulip Infinity Mirror Night Light | Rectangle & Cloud",
+    metaTitle: "Tulip Infinity Mirror Lamp – Rectangle & Cloud Shape | Handcrafted Bedroom Decor | Vurlo",
     metaDescription:
-      "Buy Vurlo Infinity Bloom tulip lamp. Infinity mirror optical illusion with handcrafted flowers — doubles as a vanity mirror. Perfect bedroom decor and gifting in India.",
+      "Buy Vurlo Infinity Bloom Lamp in Rectangle or Cloud shape. Infinity mirror optical illusion with handcrafted glowing tulips. Best aesthetic room decor gift in India.",
     description:
-      "Discover the magical optical illusion of the Vurlo Infinity Bloom Lamp. A clever combination of double-sided mirrors and warm LED lights creates the illusion of an endless glowing field of tulips stretching infinitely inside a clear glass cube. When on, it is a warm flowering dreamscape; when off, it becomes a sleek functional desktop mirror. Handcrafted to perfection, it is the ultimate aesthetic room decor piece and premium gift for bedrooms in India. A conversation-starting blend of nature-inspired beauty, optical art, and functional ambient lighting.",
+      "Choose your shape, keep the magic. The Infinity Bloom Lamp comes in two dreamy forms — the classic Rectangle cube, where double-sided mirrors create an endless glowing tulip field and doubles as a desktop vanity mirror, and the new Cloud shape, a premium cloud-frame with infinity mirror interior and warm tulip glow perfect for bedrooms and gifting. Both are USB powered, handcrafted, and built to make any space feel like a dream.",
     useCases: [
-      "Cozy vanity table mirror and decorative ambient desk light",
-      "Bedroom nightstand aesthetic flower lamp",
-      "Warm handcrafted room ornament or shelf styling focal piece",
+      "Bedroom nightstand ambient flower lamp",
+      "Cozy vanity table mirror and decorative desk light (Rectangle)",
+      "Dreamy shelf or window sill decor piece (Cloud)",
+      "Premium gift for birthdays, anniversaries, and room decor lovers",
     ],
     whyBuy: [
-      "Stunning infinity reflection effect creating endless glowing tulip rows",
-      "Clever 2-in-1 design — high-quality mirror when switched off",
-      "Handcrafted warm aesthetic vibe perfect for gifting and bedroom styling",
+      "Two shapes — Rectangle cube or Cloud frame, same magical tulip infinity effect",
+      "Stunning infinity mirror illusion — endless glowing tulip rows",
+      "Rectangle is a 2-in-1: ambient lamp + desktop vanity mirror when off",
+      "Handcrafted warm aesthetic, perfect for gifting and bedroom styling",
+      "USB powered — no batteries, works anywhere",
     ],
     faqs: [
       {
-        question: "What does the infinity bloom lamp look like when off?",
+        question: "What shapes are available?",
+        answer:
+          "Two shapes: Rectangle (classic cube infinity mirror that also works as a desktop vanity mirror when off) and Cloud (cloud-shaped frame with infinity tulip field inside). Select your preferred shape before adding to cart.",
+      },
+      {
+        question: "What does the Rectangle lamp look like when off?",
         answer:
           "The cube sides become highly reflective mirrors — a stylish functional desktop vanity mirror.",
+      },
+      {
+        question: "What does the Cloud lamp look like when off?",
+        answer:
+          "The cloud frame and mirror interior remain as a decorative accent piece — a beautiful shelf or desk ornament even without the light on.",
       },
       {
         question: "Are the tulips real flowers?",
@@ -339,7 +352,12 @@ export const PRODUCT_SEO_DATA: Record<string, SeoProductData> = {
       {
         question: "How is it powered?",
         answer:
-          "USB powered — connect to any standard charger, adapter, or power bank.",
+          "USB powered — connect to any standard charger, adapter, computer port, or power bank.",
+      },
+      {
+        question: "Is there any heat from the lamp?",
+        answer:
+          "No — energy-efficient LEDs mean the lamp stays completely cool even after hours of use.",
       },
     ],
   },
