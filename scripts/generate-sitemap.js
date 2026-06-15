@@ -58,6 +58,8 @@ async function generate() {
 
   const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ══ CORE PAGES ══ -->
   <url>
     <loc>https://vurlo.store/</loc>
     <lastmod>${dateStr}</lastmod>
@@ -65,23 +67,47 @@ async function generate() {
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://vurlo.store/shop</loc>
+    <lastmod>${dateStr}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://vurlo.store/contact</loc>
     <lastmod>${dateStr}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vurlo.store/search</loc>
+    <loc>https://vurlo.store/privacy-policy</loc>
     <lastmod>${dateStr}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
-${products.map(slug => `  <url>
+  <url>
+    <loc>https://vurlo.store/terms-of-service</loc>
+    <lastmod>${dateStr}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://vurlo.store/refund-policy</loc>
+    <lastmod>${dateStr}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ══ PRODUCT PAGES ══ -->
+${products.map(slug => {
+  const priority = (slug === 'sunset-glow-projection-lamp' || slug === 'orbit-galaxy-projector') ? '0.9' : '0.8';
+  return `  <url>
     <loc>https://vurlo.store/product/${slug}</loc>
     <lastmod>${dateStr}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`).join('\n')}
+    <priority>${priority}</priority>
+  </url>`;
+}).join('\n')}
+
 </urlset>
 `;
 

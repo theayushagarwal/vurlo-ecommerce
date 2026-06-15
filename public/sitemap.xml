@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ══ CORE PAGES ══ -->
   <url>
     <loc>https://vurlo.store/</loc>
     <lastmod>2026-06-15</lastmod>
@@ -7,17 +9,37 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://vurlo.store/shop</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://vurlo.store/contact</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vurlo.store/search</loc>
+    <loc>https://vurlo.store/privacy-policy</loc>
     <lastmod>2026-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://vurlo.store/terms-of-service</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://vurlo.store/refund-policy</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ══ PRODUCT PAGES ══ -->
   <url>
     <loc>https://vurlo.store/product/lunar-wooden-3d-moon-lamp</loc>
     <lastmod>2026-06-15</lastmod>
@@ -46,13 +68,13 @@
     <loc>https://vurlo.store/product/sunset-glow-projection-lamp</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vurlo.store/product/orbit-galaxy-projector</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://vurlo.store/product/aquawave-projector-lamp</loc>
@@ -78,4 +100,5 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
 </urlset>
