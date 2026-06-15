@@ -15,6 +15,12 @@ import { db } from "@/lib/firebase";
 
 export const Route = createFileRoute("/checkout")({
   component: CheckoutPage,
+  head: () => ({
+    meta: [
+      { title: "Checkout - VURLO" },
+      { name: "robots", content: "noindex, follow" },
+    ],
+  }),
 });
 
 type PaymentMethod = "cod" | "upi";

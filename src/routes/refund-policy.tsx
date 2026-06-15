@@ -5,6 +5,16 @@ import { ArrowLeft, ShieldCheck, Video, Clock, PackageX, CheckCircle2, XCircle, 
 
 export const Route = createFileRoute("/refund-policy")({
   component: RefundPolicyPage,
+  head: () => ({
+    meta: [
+      { title: "Return & Refund Policy - Vurlo" },
+      { name: "description", content: "Review Vurlo's Return and Refund Policy. Learn about eligibility, unboxing video requirements, and refund timelines." },
+      { name: "robots", content: "index, follow" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://vurlo.store/refund-policy" },
+    ],
+  }),
 });
 
 function RefundPolicyPage() {

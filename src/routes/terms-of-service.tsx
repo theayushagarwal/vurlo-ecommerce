@@ -5,6 +5,16 @@ import { ArrowLeft, Scale, AlertTriangle, Mail, Truck, ShieldAlert } from "lucid
 
 export const Route = createFileRoute("/terms-of-service")({
   component: TermsOfServicePage,
+  head: () => ({
+    meta: [
+      { title: "Terms of Service - Vurlo" },
+      { name: "description", content: "Review the terms and conditions for shopping and using Vurlo." },
+      { name: "robots", content: "index, follow" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://vurlo.store/terms-of-service" },
+    ],
+  }),
 });
 
 function TermsOfServicePage() {

@@ -10,6 +10,12 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/profile")({
   component: ProfilePage,
+  head: () => ({
+    meta: [
+      { title: "Profile Settings - VURLO" },
+      { name: "robots", content: "noindex, follow" },
+    ],
+  }),
 });
 
 function ProfilePage() {

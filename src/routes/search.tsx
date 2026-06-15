@@ -33,6 +33,10 @@ export const Route = createFileRoute("/search")({
       meta: [
         { title },
         { name: "description", content: "Search premium RGB lighting & aesthetic room decor." },
+        { name: "robots", content: "noindex, follow" },
+      ],
+      links: [
+        { rel: "canonical", href: "https://vurlo.store/search" },
       ],
     };
   },

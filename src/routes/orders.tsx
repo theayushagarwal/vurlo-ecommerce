@@ -26,6 +26,12 @@ import { useCart } from "@/hooks/use-cart";
 
 export const Route = createFileRoute("/orders")({
   component: OrdersPage,
+  head: () => ({
+    meta: [
+      { title: "My Orders - VURLO" },
+      { name: "robots", content: "noindex, follow" },
+    ],
+  }),
 });
 
 interface OrderItem {

@@ -15,6 +15,7 @@ export const Route = createFileRoute("/wishlist")({
     meta: [
       { title: "Your Wishlist - VURLO" },
       { name: "description", content: "Review your saved Vurlo lighting and aesthetic room decor." },
+      { name: "robots", content: "noindex, follow" },
     ],
   }),
 });

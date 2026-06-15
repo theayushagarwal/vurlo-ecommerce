@@ -34,6 +34,9 @@ export const Route = createFileRoute("/shop")({
       },
       { name: "robots", content: "index, follow" },
     ],
+    links: [
+      { rel: "canonical", href: "https://vurlo.store/shop" },
+    ],
   }),
 });
 

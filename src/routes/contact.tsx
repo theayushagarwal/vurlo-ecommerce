@@ -10,6 +10,16 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
+  head: () => ({
+    meta: [
+      { title: "Contact Us - Vurlo" },
+      { name: "description", content: "Get in touch with Vurlo. We're here to help with your aesthetic lighting and decor questions." },
+      { name: "robots", content: "index, follow" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://vurlo.store/contact" },
+    ],
+  }),
 });
 
 function ContactPage() {

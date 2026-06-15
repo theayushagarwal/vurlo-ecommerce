@@ -5,6 +5,16 @@ import { ArrowLeft, ShieldCheck, Lock, Database, Mail, Cookie, UserCheck } from 
 
 export const Route = createFileRoute("/privacy-policy")({
   component: PrivacyPolicyPage,
+  head: () => ({
+    meta: [
+      { title: "Privacy Policy - Vurlo" },
+      { name: "description", content: "Read Vurlo's privacy policy. Learn how we collect, use, and protect your personal data." },
+      { name: "robots", content: "index, follow" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://vurlo.store/privacy-policy" },
+    ],
+  }),
 });
 
 function PrivacyPolicyPage() {
