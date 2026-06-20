@@ -190,7 +190,7 @@ function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={loggingIn || authLoading}
-                className="bg-white/[0.02] border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-11 px-4 text-sm focus:bg-white/[0.04]"
+                className="bg-white/[0.02] border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-11 px-4 md:text-sm focus:bg-white/[0.04]"
                 required
               />
             </div>
@@ -207,7 +207,7 @@ function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={loggingIn || authLoading}
-                className="bg-white/[0.02] border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-11 px-4 text-sm focus:bg-white/[0.04]"
+                className="bg-white/[0.02] border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-11 px-4 md:text-sm focus:bg-white/[0.04]"
                 required
               />
             </div>

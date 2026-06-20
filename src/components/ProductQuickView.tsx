@@ -196,7 +196,7 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
               }}
             />
             {/* 7. IMAGE RENDERING (Main image) */}
-            <div className="relative w-full aspect-square bg-white/[0.03] rounded-2xl overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-full bg-white/[0.03] rounded-2xl overflow-hidden flex items-center justify-center">
               {!mainImgLoaded && (
                 <div className="absolute inset-0 animate-pulse bg-white/[0.06] rounded-2xl" />
               )}

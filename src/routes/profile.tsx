@@ -138,7 +138,7 @@ function ProfileContent() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   disabled={saving}
-                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-4 text-sm transition-all"
+                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-4 md:text-sm transition-all"
                 />
               </div>
             </div>
@@ -154,7 +154,7 @@ function ProfileContent() {
                   type="email"
                   value={user?.email || ""}
                   disabled
-                  className="bg-white/[0.01] border border-white/[0.04] text-white/40 rounded-xl select-none h-11 pl-10 pr-24 text-sm cursor-not-allowed"
+                  className="bg-white/[0.01] border border-white/[0.04] text-white/40 rounded-xl select-none h-11 pl-10 pr-24 md:text-sm cursor-not-allowed"
                 />
                 <span className="absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center gap-1 text-[9px] font-bold text-white/25 uppercase tracking-wider bg-white/[0.03] border border-white/[0.05] px-2 py-0.5 rounded-full select-none">
                   <ShieldCheck className="h-2.5 w-2.5 text-violet-400" />

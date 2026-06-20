@@ -247,7 +247,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     disabled={loading}
-                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-3.5 text-sm transition-all"
+                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-3.5 md:text-sm transition-all"
                   />
                 </div>
               </div>
@@ -265,7 +265,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={loading}
-                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-3.5 text-sm transition-all"
+                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-3.5 md:text-sm transition-all"
                 />
               </div>
             </div>
@@ -297,7 +297,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={loading}
-                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-10 text-sm transition-all"
+                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-10 md:text-sm transition-all"
                   />
                   <button
                     type="button"
@@ -324,7 +324,7 @@ export function AuthModal({ open, onOpenChange }: AuthModalProps) {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     disabled={loading}
-                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-10 text-sm transition-all"
+                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-lg placeholder:text-white/20 h-10 pl-10 pr-10 md:text-sm transition-all"
                   />
                   <button
                     type="button"

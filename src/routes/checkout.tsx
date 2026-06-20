@@ -736,7 +736,7 @@ function CheckoutPage() {
                         setCouponCode(e.target.value.toUpperCase());
                         setCouponError(null);
                       }}
-                      className="flex-1 bg-white/[0.02] border border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-9 px-3 text-xs uppercase font-semibold focus:outline-none transition-colors"
+                      className="flex-1 bg-white/[0.02] border border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-9 px-3 md:text-xs uppercase font-semibold focus:outline-none transition-colors"
                     />
                     <button
                       type="submit"
@@ -790,7 +790,7 @@ function CheckoutPage() {
 
 // ── SHARED STYLE ────────────────────────────────────────────────────────────
 const inputCls =
-  "bg-white/[0.02] border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-10 px-3 text-xs";
+  "bg-white/[0.02] border-white/[0.06] focus:border-violet-500/50 text-white rounded-xl placeholder:text-white/20 h-10 px-3 md:text-xs";
 
 // ── HELPER COMPONENTS ───────────────────────────────────────────────────────
 

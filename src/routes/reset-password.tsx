@@ -189,7 +189,7 @@ function ResetPasswordContent() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={loading}
-                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-3.5 text-sm transition-all"
+                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-3.5 md:text-sm transition-all"
                   />
                 </div>
               </div>
@@ -206,7 +206,7 @@ function ResetPasswordContent() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     disabled={loading}
-                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-3.5 text-sm transition-all"
+                    className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-3.5 md:text-sm transition-all"
                   />
                 </div>
               </div>

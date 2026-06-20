@@ -119,7 +119,7 @@ function ContactContent() {
                   onChange={(e) => setName(e.target.value)}
                   disabled={sending}
                   maxLength={100}
-                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-4 text-sm transition-all"
+                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-4 md:text-sm transition-all"
                 />
               </div>
             </div>
@@ -137,7 +137,7 @@ function ContactContent() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={sending}
-                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-4 text-sm transition-all"
+                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 h-11 pl-10 pr-4 md:text-sm transition-all"
                 />
               </div>
             </div>
@@ -156,7 +156,7 @@ function ContactContent() {
                   disabled={sending}
                   rows={5}
                   maxLength={5000}
-                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 pl-10 pr-4 py-3 text-sm resize-none transition-all"
+                  className="bg-white/[0.03] border-white/[0.08] focus:border-violet-500/50 focus-visible:ring-0 text-white rounded-xl placeholder:text-white/20 pl-10 pr-4 py-3 md:text-sm resize-none transition-all"
                 />
               </div>
             </div>
