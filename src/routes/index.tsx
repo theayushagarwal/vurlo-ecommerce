@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
+import { HeroLoader } from "@/components/HeroLoader";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { Categories } from "@/components/Categories";
 import { WhyVurlo } from "@/components/WhyVurlo";
 import { Testimonials } from "@/components/Testimonials";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
+import { FAQSection } from "@/components/FAQSection";
 
 type IndexSearchParams = {
   category?: string;
@@ -26,9 +27,56 @@ const HOME_JSON_LD = {
         "@type": "ImageObject",
         url: "https://vurlo.store/preview.jpg",
       },
-      sameAs: [],
+      sameAs: [
+        "https://instagram.com/vurlo.store",
+        "https://twitter.com/vurlostore",
+        "https://youtube.com/@vurlo"
+      ],
       description:
         "Vurlo is India's premium ambient lighting brand offering RGB lights, sunset lamps, galaxy projectors, crystal lamps, and aesthetic room decor.",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "1050",
+      },
+      review: [
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Rohit Sharma",
+          },
+          reviewBody: "Got the RGB strip lights for my hostel room and honestly wasn't expecting much at this price. But the colors are actually really good, the app works fine and it sticks properly.",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+          },
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Priya Nair",
+          },
+          reviewBody: "Ordered the humidifier lamp mostly for the aesthetic and it looks exactly like the photos. Been using it for 2 months now, no issues. The mist is quiet so it doesn't disturb calls.",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+          },
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Arjun Verma",
+          },
+          reviewBody: "The moon lamp I ordered for my desk is genuinely nice. The glow is warm and not too harsh for late nights. Packaging was also good, came without any damage.",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+          },
+        },
+      ],
     },
     {
       "@type": "WebSite",
@@ -55,6 +103,53 @@ const HOME_JSON_LD = {
       isPartOf: { "@id": "https://vurlo.store/#website" },
       publisher: { "@id": "https://vurlo.store/#organization" },
     },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vurlo.store/#faq",
+      "isPartOf": { "@id": "https://vurlo.store/#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Vurlo and where are you based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vurlo is India's premium ambient lighting and aesthetic room decor brand. We curate the highest quality RGB lights, sunset lamps, galaxy projectors, and desk aesthetics. We are based in India and ship directly to setup enthusiasts nationwide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer free shipping across India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer 100% free shipping on all orders across India with no minimum cart value. Every package is securely wrapped and shipped with leading logistics partners."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does delivery take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Orders are processed within 24 hours. Delivery typically takes 3 to 7 business days depending on your city. A tracking link is automatically sent to your email and phone number as soon as the order is dispatched."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is your return and refund policy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer a customer-friendly 7-day replacement/refund policy for any item that arrives damaged, defective, or incorrect. Simply contact us with an unboxing video/photo, and we will arrange a replacement or refund immediately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are payments secure on Vurlo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We use Razorpay, India's leading payment processor, to handle all transactions. Your payment is 100% secure and SSL-encrypted. We accept UPI (Google Pay, PhonePe, Paytm), Credit/Debit cards, Net Banking, and Wallets."
+          }
+        }
+      ]
+    }
   ],
 };
 
@@ -160,7 +255,7 @@ function Index() {
         </p>
       </div>
 
-      <Hero />
+      <HeroLoader />
       <FeaturedProducts category={category} sale={sale} />
       <Categories />
       <WhyVurlo />
@@ -251,6 +346,8 @@ function Index() {
           </article>
         </div>
       </section>
+
+      <FAQSection />
 
       <Newsletter />
       <Footer />

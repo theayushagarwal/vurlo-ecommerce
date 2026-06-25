@@ -320,12 +320,48 @@ function ProductDetailPage() {
       "@type": "Offer",
       price: product.price,
       priceCurrency: "INR",
+      priceValidUntil: "2027-12-31",
       availability:
         (product.stock ?? 10) > 0
           ? "https://schema.org/InStock"
           : "https://schema.org/OutOfStock",
       url: `https://vurlo.store/product/${product.slug}`,
       seller: { "@type": "Organization", name: "Vurlo" },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: 0,
+          currency: "INR",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "IN",
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: {
+            "@type": "QuantitativeValue",
+            minValue: 0,
+            maxValue: 1,
+            unitCode: "DAY",
+          },
+          transitTime: {
+            "@type": "QuantitativeValue",
+            minValue: 3,
+            maxValue: 7,
+            unitCode: "DAY",
+          },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "IN",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnPeriod",
+        merchantReturnDays: 7,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
+      },
     },
     ...(product.rating !== undefined && {
       aggregateRating: {
@@ -337,6 +373,21 @@ function ProductDetailPage() {
       },
     }),
   };
+  const faqJsonLd = useMemo(() => {
+    if (!seoData?.faqs || seoData.faqs.length === 0) return null;
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: seoData.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    };
+  }, [seoData?.faqs]);
 
   // ─────────────────────────────────────────────────────────────────────────
   return (
@@ -346,6 +397,12 @@ function ProductDetailPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <div>
         <Navbar />
