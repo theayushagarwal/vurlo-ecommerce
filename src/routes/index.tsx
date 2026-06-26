@@ -22,7 +22,7 @@ const HOME_JSON_LD = {
       "@type": "Organization",
       "@id": "https://vurlo.store/#organization",
       name: "Vurlo",
-      url: "https://vurlo.store",
+      url: "https://vurlo.store/",
       logo: {
         "@type": "ImageObject",
         url: "https://vurlo.store/preview.jpg",
@@ -81,7 +81,7 @@ const HOME_JSON_LD = {
     {
       "@type": "WebSite",
       "@id": "https://vurlo.store/#website",
-      url: "https://vurlo.store",
+      url: "https://vurlo.store/",
       name: "Vurlo",
       publisher: { "@id": "https://vurlo.store/#organization" },
       potentialAction: {
@@ -96,7 +96,7 @@ const HOME_JSON_LD = {
     {
       "@type": "WebPage",
       "@id": "https://vurlo.store/#webpage",
-      url: "https://vurlo.store",
+      url: "https://vurlo.store/",
       name: "Vurlo – Premium Ambient Lighting & Aesthetic Room Decor India",
       description:
         "Shop Vurlo for premium RGB lights, sunset lamps, galaxy projectors, crystal ball lamps, and aesthetic room decor. Free shipping across India.",
@@ -173,7 +173,7 @@ export const Route = createFileRoute("/")({
 
       // Open Graph
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vurlo.store" },
+      { property: "og:url", content: "https://vurlo.store/" },
       { property: "og:title", content: "Vurlo – Premium Ambient Lighting & Aesthetic Room Decor" },
       { property: "og:description", content: "Premium RGB lights, sunset lamps, galaxy projectors & aesthetic room decor. Free shipping across India." },
       { property: "og:image", content: "https://vurlo.store/preview.jpg" },
@@ -182,10 +182,13 @@ export const Route = createFileRoute("/")({
 
       // Twitter
       { property: "twitter:card", content: "summary_large_image" },
-      { property: "twitter:url", content: "https://vurlo.store" },
+      { property: "twitter:url", content: "https://vurlo.store/" },
       { property: "twitter:title", content: "Vurlo – Premium Ambient Lighting & Aesthetic Room Decor" },
       { property: "twitter:description", content: "Premium RGB lights, sunset lamps, galaxy projectors & aesthetic room decor. Free shipping across India." },
       { property: "twitter:image", content: "https://vurlo.store/preview.jpg" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://vurlo.store/" },
     ],
   }),
   component: Index,
