@@ -39,7 +39,9 @@ export const Route = createFileRoute("/product/$slug")({
       `Shop ${slug
         .split("-")
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ")} on Vurlo – premium ambient lighting, RGB lights, sunset lamps & aesthetic room decor. Free shipping across India.`;
+        .join(
+          " ",
+        )} on Vurlo – premium ambient lighting, RGB lights, sunset lamps & aesthetic room decor. Free shipping across India.`;
 
     const ogImage = seo?.ogImage || "https://vurlo.store/preview.jpg";
     const canonical = `https://vurlo.store/product/${slug}`;
@@ -87,10 +89,7 @@ function ProductDetailPage() {
   const { toggleWishlist, isWishlisted } = useWishlist();
 
   // ── Derived data (memoised) ──────────────────────────────────────────────
-  const product = useMemo(
-    () => dbProducts.find((p) => p.slug === slug),
-    [dbProducts, slug],
-  );
+  const product = useMemo(() => dbProducts.find((p) => p.slug === slug), [dbProducts, slug]);
 
   const seoData = useMemo(
     () => (product ? (PRODUCT_SEO_DATA[product.slug] ?? null) : null),
@@ -134,9 +133,7 @@ function ProductDetailPage() {
     if (hasVariants && product) {
       const keys = Object.keys(product.images);
       if (product.defaultVariant) {
-        const found = keys.find(
-          (k) => k.toLowerCase() === product.defaultVariant!.toLowerCase(),
-        );
+        const found = keys.find((k) => k.toLowerCase() === product.defaultVariant!.toLowerCase());
         if (found) return found;
       }
       return keys[0] ?? "";
@@ -188,9 +185,7 @@ function ProductDetailPage() {
     } else if (typeof product.image === "string") {
       imgs = [product.image];
     }
-    return Array.from(new Set(imgs)).filter(
-      (img) => typeof img === "string" && img.trim() !== "",
-    );
+    return Array.from(new Set(imgs)).filter((img) => typeof img === "string" && img.trim() !== "");
   }, [hasVariants, product, selectedVariant]);
 
   const currentImage = useMemo(
@@ -319,8 +314,7 @@ function ProductDetailPage() {
     seoData?.description ||
     product.description ||
     "Premium aesthetic setup upgrade designed to elevate your room and workspace ambiance with stylish lighting and high quality build.";
-  const productImage =
-    resolvedImages[0] || resolveProductImage("", displayTitle);
+  const productImage = resolvedImages[0] || resolveProductImage("", displayTitle);
 
   // ── JSON-LD structured data ───────────────────────────────────────────────
   const jsonLd = {
@@ -338,9 +332,7 @@ function ProductDetailPage() {
       priceCurrency: "INR",
       priceValidUntil: "2027-12-31",
       availability:
-        (product.stock ?? 10) > 0
-          ? "https://schema.org/InStock"
-          : "https://schema.org/OutOfStock",
+        (product.stock ?? 10) > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       url: `https://vurlo.store/product/${product.slug}`,
       seller: { "@type": "Organization", name: "Vurlo" },
       shippingDetails: {
@@ -447,7 +439,9 @@ function ProductDetailPage() {
                   }}
                 />
                 <img
-                  src={imgError || !currentImage ? resolveProductImage("", product.name) : currentImage}
+                  src={
+                    imgError || !currentImage ? resolveProductImage("", product.name) : currentImage
+                  }
                   alt={`${displayTitle} – ambient lighting by Vurlo`}
                   onError={() => setImgError(true)}
                   className="max-w-full max-h-full object-contain relative z-10 rounded-2xl drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
@@ -537,7 +531,11 @@ function ProductDetailPage() {
                       {Array.from({ length: 5 }).map((_, idx) => (
                         <span
                           key={idx}
-                          className={idx < Math.floor(product.rating || 0) ? "text-amber-400 font-bold" : "text-white/20"}
+                          className={
+                            idx < Math.floor(product.rating || 0)
+                              ? "text-amber-400 font-bold"
+                              : "text-white/20"
+                          }
                         >
                           ★
                         </span>
@@ -632,7 +630,9 @@ function ProductDetailPage() {
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {(product.features as string[]).map((feature: string) => (
                       <li key={feature} className="flex items-start gap-2 text-xs text-gray-400">
-                        <span className="text-violet-400 font-bold select-none" aria-hidden="true">•</span>
+                        <span className="text-violet-400 font-bold select-none" aria-hidden="true">
+                          •
+                        </span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -664,7 +664,9 @@ function ProductDetailPage() {
                           onClick={handleNotifyMe}
                           disabled={notifySubmitting}
                           className="h-12 px-6 rounded-xl text-xs font-bold text-white cursor-pointer disabled:opacity-50 transition-all shrink-0"
-                          style={{ background: "linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%)" }}
+                          style={{
+                            background: "linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%)",
+                          }}
                         >
                           {notifySubmitting ? (
                             <Loader2 className="h-4 w-4 animate-spin" />
@@ -710,9 +712,14 @@ function ProductDetailPage() {
                           ? "border-rose-500/30 bg-rose-500/10 text-rose-400"
                           : "border-white/[0.08] bg-white/[0.02] text-white/50 hover:text-white"
                       }`}
-                      aria-label={isWishlisted(product.id) ? "Remove from wishlist" : "Add to wishlist"}
+                      aria-label={
+                        isWishlisted(product.id) ? "Remove from wishlist" : "Add to wishlist"
+                      }
                     >
-                      <Heart size={16} className={isWishlisted(product.id) ? "fill-rose-400" : ""} />
+                      <Heart
+                        size={16}
+                        className={isWishlisted(product.id) ? "fill-rose-400" : ""}
+                      />
                     </button>
                   </div>
                 )}
@@ -774,7 +781,9 @@ function ProductDetailPage() {
                       key={useCase}
                       className="flex items-start gap-2.5 text-xs text-white/50 leading-relaxed"
                     >
-                      <span className="text-violet-400 font-bold select-none" aria-hidden="true">•</span>
+                      <span className="text-violet-400 font-bold select-none" aria-hidden="true">
+                        •
+                      </span>
                       <span>{useCase}</span>
                     </li>
                   ))}
@@ -782,10 +791,7 @@ function ProductDetailPage() {
               </section>
 
               <section aria-labelledby="whybuy-heading" className="space-y-4">
-                <h2
-                  id="whybuy-heading"
-                  className="font-display text-xl font-bold text-white"
-                >
+                <h2 id="whybuy-heading" className="font-display text-xl font-bold text-white">
                   Why Choose Vurlo Lighting
                 </h2>
                 <ul className="space-y-3">
@@ -794,7 +800,9 @@ function ProductDetailPage() {
                       key={point}
                       className="flex items-start gap-2.5 text-xs text-white/50 leading-relaxed"
                     >
-                      <span className="text-cyan-400 font-bold select-none" aria-hidden="true">✓</span>
+                      <span className="text-cyan-400 font-bold select-none" aria-hidden="true">
+                        ✓
+                      </span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -845,7 +853,8 @@ function ProductDetailPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {relatedProducts.map((related) => {
                     const relatedImage = (() => {
-                      if (Array.isArray(related.images)) return related.images[0] || related.image || "";
+                      if (Array.isArray(related.images))
+                        return related.images[0] || related.image || "";
                       if (related.images && typeof related.images === "object") {
                         const defVar = (related.defaultVariant || "Galaxy").toLowerCase();
                         const varImages =

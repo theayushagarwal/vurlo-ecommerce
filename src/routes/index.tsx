@@ -30,7 +30,7 @@ const HOME_JSON_LD = {
       sameAs: [
         "https://instagram.com/vurlo.store",
         "https://twitter.com/vurlostore",
-        "https://youtube.com/@vurlo"
+        "https://youtube.com/@vurlo",
       ],
       description:
         "Vurlo is India's premium ambient lighting brand offering RGB lights, sunset lamps, galaxy projectors, crystal lamps, and aesthetic room decor.",
@@ -46,7 +46,8 @@ const HOME_JSON_LD = {
             "@type": "Person",
             name: "Rohit Sharma",
           },
-          reviewBody: "Got the RGB strip lights for my hostel room and honestly wasn't expecting much at this price. But the colors are actually really good, the app works fine and it sticks properly.",
+          reviewBody:
+            "Got the RGB strip lights for my hostel room and honestly wasn't expecting much at this price. But the colors are actually really good, the app works fine and it sticks properly.",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
@@ -58,7 +59,8 @@ const HOME_JSON_LD = {
             "@type": "Person",
             name: "Priya Nair",
           },
-          reviewBody: "Ordered the humidifier lamp mostly for the aesthetic and it looks exactly like the photos. Been using it for 2 months now, no issues. The mist is quiet so it doesn't disturb calls.",
+          reviewBody:
+            "Ordered the humidifier lamp mostly for the aesthetic and it looks exactly like the photos. Been using it for 2 months now, no issues. The mist is quiet so it doesn't disturb calls.",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
@@ -70,7 +72,8 @@ const HOME_JSON_LD = {
             "@type": "Person",
             name: "Arjun Verma",
           },
-          reviewBody: "The moon lamp I ordered for my desk is genuinely nice. The glow is warm and not too harsh for late nights. Packaging was also good, came without any damage.",
+          reviewBody:
+            "The moon lamp I ordered for my desk is genuinely nice. The glow is warm and not too harsh for late nights. Packaging was also good, came without any damage.",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
@@ -106,50 +109,50 @@ const HOME_JSON_LD = {
     {
       "@type": "FAQPage",
       "@id": "https://vurlo.store/#faq",
-      "isPartOf": { "@id": "https://vurlo.store/#webpage" },
-      "mainEntity": [
+      isPartOf: { "@id": "https://vurlo.store/#webpage" },
+      mainEntity: [
         {
           "@type": "Question",
-          "name": "What is Vurlo and where are you based?",
-          "acceptedAnswer": {
+          name: "What is Vurlo and where are you based?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "Vurlo is India's premium ambient lighting and aesthetic room decor brand. We curate the highest quality RGB lights, sunset lamps, galaxy projectors, and desk aesthetics. We are based in India and ship directly to setup enthusiasts nationwide."
-          }
+            text: "Vurlo is India's premium ambient lighting and aesthetic room decor brand. We curate the highest quality RGB lights, sunset lamps, galaxy projectors, and desk aesthetics. We are based in India and ship directly to setup enthusiasts nationwide.",
+          },
         },
         {
           "@type": "Question",
-          "name": "Do you offer free shipping across India?",
-          "acceptedAnswer": {
+          name: "Do you offer free shipping across India?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "Yes, we offer 100% free shipping on all orders across India with no minimum cart value. Every package is securely wrapped and shipped with leading logistics partners."
-          }
+            text: "Yes, we offer 100% free shipping on all orders across India with no minimum cart value. Every package is securely wrapped and shipped with leading logistics partners.",
+          },
         },
         {
           "@type": "Question",
-          "name": "How long does delivery take?",
-          "acceptedAnswer": {
+          name: "How long does delivery take?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "Orders are processed within 24 hours. Delivery typically takes 3 to 7 business days depending on your city. A tracking link is automatically sent to your email and phone number as soon as the order is dispatched."
-          }
+            text: "Orders are processed within 24 hours. Delivery typically takes 3 to 7 business days depending on your city. A tracking link is automatically sent to your email and phone number as soon as the order is dispatched.",
+          },
         },
         {
           "@type": "Question",
-          "name": "What is your return and refund policy?",
-          "acceptedAnswer": {
+          name: "What is your return and refund policy?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "We offer a customer-friendly 7-day replacement/refund policy for any item that arrives damaged, defective, or incorrect. Simply contact us with an unboxing video/photo, and we will arrange a replacement or refund immediately."
-          }
+            text: "We offer a customer-friendly 7-day replacement/refund policy for any item that arrives damaged, defective, or incorrect. Simply contact us with an unboxing video/photo, and we will arrange a replacement or refund immediately.",
+          },
         },
         {
           "@type": "Question",
-          "name": "Are payments secure on Vurlo?",
-          "acceptedAnswer": {
+          name: "Are payments secure on Vurlo?",
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": "Absolutely. We use Razorpay, India's leading payment processor, to handle all transactions. Your payment is 100% secure and SSL-encrypted. We accept UPI (Google Pay, PhonePe, Paytm), Credit/Debit cards, Net Banking, and Wallets."
-          }
-        }
-      ]
-    }
+            text: "Absolutely. We use Razorpay, India's leading payment processor, to handle all transactions. Your payment is 100% secure and SSL-encrypted. We accept UPI (Google Pay, PhonePe, Paytm), Credit/Debit cards, Net Banking, and Wallets.",
+          },
+        },
+      ],
+    },
   ],
 };
 
@@ -169,13 +172,21 @@ export const Route = createFileRoute("/")({
           "Shop Vurlo for premium RGB lights, sunset lamps, galaxy projectors, crystal ball lamps & aesthetic room decor. Free shipping across India. Elevate your setup today.",
       },
       { name: "robots", content: "index, follow" },
-      { name: "keywords", content: "rgb lights india, sunset lamp, ambient lighting, galaxy projector, crystal lamp, aesthetic room decor, bedroom lighting india, gaming setup lights" },
+      {
+        name: "keywords",
+        content:
+          "rgb lights india, sunset lamp, ambient lighting, galaxy projector, crystal lamp, aesthetic room decor, bedroom lighting india, gaming setup lights",
+      },
 
       // Open Graph
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://vurlo.store/" },
       { property: "og:title", content: "Vurlo – Premium Ambient Lighting & Aesthetic Room Decor" },
-      { property: "og:description", content: "Premium RGB lights, sunset lamps, galaxy projectors & aesthetic room decor. Free shipping across India." },
+      {
+        property: "og:description",
+        content:
+          "Premium RGB lights, sunset lamps, galaxy projectors & aesthetic room decor. Free shipping across India.",
+      },
       { property: "og:image", content: "https://vurlo.store/preview.jpg" },
       { property: "og:site_name", content: "Vurlo" },
       { property: "og:locale", content: "en_IN" },
@@ -183,13 +194,18 @@ export const Route = createFileRoute("/")({
       // Twitter
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:url", content: "https://vurlo.store/" },
-      { property: "twitter:title", content: "Vurlo – Premium Ambient Lighting & Aesthetic Room Decor" },
-      { property: "twitter:description", content: "Premium RGB lights, sunset lamps, galaxy projectors & aesthetic room decor. Free shipping across India." },
+      {
+        property: "twitter:title",
+        content: "Vurlo – Premium Ambient Lighting & Aesthetic Room Decor",
+      },
+      {
+        property: "twitter:description",
+        content:
+          "Premium RGB lights, sunset lamps, galaxy projectors & aesthetic room decor. Free shipping across India.",
+      },
       { property: "twitter:image", content: "https://vurlo.store/preview.jpg" },
     ],
-    links: [
-      { rel: "canonical", href: "https://vurlo.store/" },
-    ],
+    links: [{ rel: "canonical", href: "https://vurlo.store/" }],
   }),
   component: Index,
 });
@@ -245,16 +261,16 @@ function Index() {
         <h2>Ambient Lighting for Bedroom Decor India</h2>
         <p>
           The right ambient lighting can completely transform the feel of your bedroom. Vurlo's
-          collection of sunset lamps, moon lamps, and galaxy projectors are specifically designed for
-          Indian bedroom setups — warm, aesthetic, and instantly mood-lifting. Whether you want a
-          cozy night vibe or an energetic gaming room atmosphere, Vurlo has the perfect light for
+          collection of sunset lamps, moon lamps, and galaxy projectors are specifically designed
+          for Indian bedroom setups — warm, aesthetic, and instantly mood-lifting. Whether you want
+          a cozy night vibe or an energetic gaming room atmosphere, Vurlo has the perfect light for
           you.
         </p>
         <h2>Gaming Setup Lights India</h2>
         <p>
           Level up your battlestation with Vurlo's range of RGB gaming setup lights including LED
-          strip lights, galaxy projectors, and sunset projection lamps. Designed to add depth, color,
-          and cinematic ambiance to any gaming desk or streaming setup in India.
+          strip lights, galaxy projectors, and sunset projection lamps. Designed to add depth,
+          color, and cinematic ambiance to any gaming desk or streaming setup in India.
         </p>
       </div>
 
@@ -269,10 +285,7 @@ function Index() {
         aria-labelledby="seo-articles-heading"
         className="mx-auto max-w-7xl px-6 py-20 border-t border-white/[0.06] text-left"
       >
-        <h2
-          id="seo-articles-heading"
-          className="sr-only"
-        >
+        <h2 id="seo-articles-heading" className="sr-only">
           Lighting Guides & Room Setup Tips
         </h2>
 
@@ -304,12 +317,12 @@ function Index() {
             <p className="text-xs text-white/50 leading-relaxed">
               An aesthetic room setup starts with lighting — everything else follows. Begin with a
               key ambient light like a sunset lamp or galaxy projector as your focal point, then
-              layer in LED strip lights along your desk or shelves for depth. Choose warm tones for a
-              cozy bedroom vibe, or cool purples and blues for a gaming energy. Keep surfaces clean
-              and minimal so the lighting does the talking. Small upgrades like a crystal ball lamp
-              on your desk or an infinity bloom lamp on your nightstand make a huge visual impact.
-              Vurlo's products are designed specifically so anyone can build a premium aesthetic setup
-              without spending a fortune — every piece ships free across India.
+              layer in LED strip lights along your desk or shelves for depth. Choose warm tones for
+              a cozy bedroom vibe, or cool purples and blues for a gaming energy. Keep surfaces
+              clean and minimal so the lighting does the talking. Small upgrades like a crystal ball
+              lamp on your desk or an infinity bloom lamp on your nightstand make a huge visual
+              impact. Vurlo's products are designed specifically so anyone can build a premium
+              aesthetic setup without spending a fortune — every piece ships free across India.
             </p>
           </article>
 
@@ -326,7 +339,8 @@ function Index() {
               is chosen for its design quality, build, and ability to instantly transform a room's
               atmosphere. Trusted by 1000+ customers across India, Vurlo ships free on all orders
               with secure checkout. Whether you want a cozy bedroom vibe, a cinematic gaming setup,
-              or a unique handcrafted gift, Vurlo has the right light for every setup and every mood.
+              or a unique handcrafted gift, Vurlo has the right light for every setup and every
+              mood.
             </p>
           </article>
 
@@ -337,14 +351,14 @@ function Index() {
               Gaming Setup Lights – Upgrade Your Battlestation
             </h2>
             <p className="text-xs text-white/50 leading-relaxed">
-              Your gaming setup is only as good as its lighting. The right RGB lights don't just look
-              great on stream — they reduce eye strain during long sessions and create an immersive
-              environment that puts you in the zone. Vurlo's gaming setup lights range from RGB LED
-              strips for desk backlighting to galaxy projectors that transform your ceiling into a
-              cosmic backdrop. The sunset lamp is a viral favourite among Indian streamers and
-              YouTubers for its warm, cinematic projection. Add a crystal ball lamp to your desk for
-              a premium aesthetic focal point. Build your dream battlestation with Vurlo — all lights
-              ship free across India.
+              Your gaming setup is only as good as its lighting. The right RGB lights don't just
+              look great on stream — they reduce eye strain during long sessions and create an
+              immersive environment that puts you in the zone. Vurlo's gaming setup lights range
+              from RGB LED strips for desk backlighting to galaxy projectors that transform your
+              ceiling into a cosmic backdrop. The sunset lamp is a viral favourite among Indian
+              streamers and YouTubers for its warm, cinematic projection. Add a crystal ball lamp to
+              your desk for a premium aesthetic focal point. Build your dream battlestation with
+              Vurlo — all lights ship free across India.
             </p>
           </article>
         </div>

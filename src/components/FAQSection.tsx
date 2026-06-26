@@ -6,31 +6,36 @@ import {
 } from "@/components/ui/accordion";
 import { HelpCircle, Truck, ShieldCheck, RefreshCw } from "lucide-react";
 
-export const FAQ_ITEMS = [
+const FAQ_ITEMS = [
   {
     id: "item-1",
     question: "What is Vurlo and where are you based?",
-    answer: "Vurlo is India's premium ambient lighting and aesthetic room decor brand. We curate the highest quality RGB lights, sunset lamps, galaxy projectors, and desk aesthetics. We are based in India and ship directly to setup enthusiasts nationwide.",
+    answer:
+      "Vurlo is India's premium ambient lighting and aesthetic room decor brand. We curate the highest quality RGB lights, sunset lamps, galaxy projectors, and desk aesthetics. We are based in India and ship directly to setup enthusiasts nationwide.",
   },
   {
     id: "item-2",
     question: "Do you offer free shipping across India?",
-    answer: "Yes, we offer 100% free shipping on all orders across India with no minimum cart value. Every package is securely wrapped and shipped with leading logistics partners.",
+    answer:
+      "Yes, we offer 100% free shipping on all orders across India with no minimum cart value. Every package is securely wrapped and shipped with leading logistics partners.",
   },
   {
     id: "item-3",
     question: "How long does delivery take?",
-    answer: "Orders are processed within 24 hours. Delivery typically takes 3 to 7 business days depending on your city. A tracking link is automatically sent to your email and phone number as soon as the order is dispatched.",
+    answer:
+      "Orders are processed within 24 hours. Delivery typically takes 3 to 7 business days depending on your city. A tracking link is automatically sent to your email and phone number as soon as the order is dispatched.",
   },
   {
     id: "item-4",
     question: "What is your return and refund policy?",
-    answer: "We offer a customer-friendly 7-day replacement/refund policy for any item that arrives damaged, defective, or incorrect. Simply contact us with an unboxing video/photo, and we will arrange a replacement or refund immediately.",
+    answer:
+      "We offer a customer-friendly 7-day replacement/refund policy for any item that arrives damaged, defective, or incorrect. Simply contact us with an unboxing video/photo, and we will arrange a replacement or refund immediately.",
   },
   {
     id: "item-5",
     question: "Are payments secure on Vurlo?",
-    answer: "Absolutely. We use Razorpay, India's leading payment processor, to handle all transactions. Your payment is 100% secure and SSL-encrypted. We accept UPI (Google Pay, PhonePe, Paytm), Credit/Debit cards, Net Banking, and Wallets.",
+    answer:
+      "Absolutely. We use Razorpay, India's leading payment processor, to handle all transactions. Your payment is 100% secure and SSL-encrypted. We accept UPI (Google Pay, PhonePe, Paytm), Credit/Debit cards, Net Banking, and Wallets.",
   },
 ];
 
