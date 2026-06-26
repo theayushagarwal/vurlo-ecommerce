@@ -97,6 +97,22 @@ function ProductDetailPage() {
     [product],
   );
 
+  const faqJsonLd = useMemo(() => {
+    if (!seoData?.faqs || seoData.faqs.length === 0) return null;
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: seoData.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    };
+  }, [seoData?.faqs]);
+
   const relatedProducts = useMemo(() => {
     if (!product) return [];
     const filtered = dbProducts.filter((p) => p.id !== product.id && p.active !== false);
@@ -373,21 +389,6 @@ function ProductDetailPage() {
       },
     }),
   };
-  const faqJsonLd = useMemo(() => {
-    if (!seoData?.faqs || seoData.faqs.length === 0) return null;
-    return {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: seoData.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
-    };
-  }, [seoData?.faqs]);
 
   // ─────────────────────────────────────────────────────────────────────────
   return (
