@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
-import { HeroLoader } from "@/components/HeroLoader";
+import { Hero } from "@/components/Hero";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { Categories } from "@/components/Categories";
 import { WhyVurlo } from "@/components/WhyVurlo";
@@ -274,7 +274,7 @@ function Index() {
         </p>
       </div>
 
-      <HeroLoader />
+      <Hero />
       <FeaturedProducts category={category} sale={sale} />
       <Categories />
       <WhyVurlo />
