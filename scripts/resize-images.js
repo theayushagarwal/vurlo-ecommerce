@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 const BACKUP_DIR = path.join(PUBLIC_DIR, '_originals');
 
-const TARGET_WIDTH = 1280;
+const TARGET_WIDTH = 1200;
 
 // Excluded files
 const EXCLUDED_FILES = [
@@ -26,8 +26,8 @@ async function main() {
   console.log(`Starting image optimization process...`);
   
   if (!fs.existsSync(BACKUP_DIR)) {
-    fs.mkdirSync(BACKUP_DIR, { recursive: true });
-    console.log(`Created backup directory: ${BACKUP_DIR}`);
+    console.error(`Error: Backup directory ${BACKUP_DIR} does not exist. Safety step requires a pre-existing backup.`);
+    process.exit(1);
   }
 
   const files = fs.readdirSync(PUBLIC_DIR);
@@ -46,27 +46,19 @@ async function main() {
     imagesToProcess.push(file);
   }
 
-  console.log(`Found ${imagesToProcess.length} images to optimize.`);
+  console.log(`Found ${imagesToProcess.length} images to optimize in public/.`);
   
-  // Step 1: Backup all files first
-  for (const file of imagesToProcess) {
-    const sourcePath = path.join(PUBLIC_DIR, file);
-    const backupPath = path.join(BACKUP_DIR, file);
-    
-    if (!fs.existsSync(backupPath)) {
-      fs.copyFileSync(sourcePath, backupPath);
-      console.log(`Backed up: ${file} to _originals/`);
-    }
-  }
-
-  console.log(`All backups completed successfully.`);
-  
-  // Step 2: Optimize and resize in-place
   const report = [];
 
   for (const file of imagesToProcess) {
     const filePath = path.join(PUBLIC_DIR, file);
     const backupPath = path.join(BACKUP_DIR, file);
+    
+    // Safety check: ensure backup exists
+    if (!fs.existsSync(backupPath)) {
+      console.log(`Warning: Backup for ${file} not found in _originals/. Creating backup now...`);
+      fs.copyFileSync(filePath, backupPath);
+    }
     
     try {
       const metadata = await sharp(backupPath).metadata();
@@ -92,31 +84,21 @@ async function main() {
         continue;
       }
 
-      if (originalWidth <= TARGET_WIDTH) {
-        report.push({
-          file,
-          status: 'Skipped',
-          reason: `Width (${originalWidth}px) <= ${TARGET_WIDTH}px`,
-          beforeWidth: originalWidth,
-          beforeHeight: originalHeight,
-          afterWidth: originalWidth,
-          afterHeight: originalHeight,
-          beforeKB,
-          afterKB: beforeKB,
-          reduction: '0.0%'
-        });
-        continue;
+      let afterWidth = originalWidth;
+      let afterHeight = originalHeight;
+      let resized = false;
+
+      let pipeline = sharp(backupPath);
+
+      if (originalWidth > TARGET_WIDTH) {
+        afterWidth = TARGET_WIDTH;
+        afterHeight = Math.round((originalHeight * TARGET_WIDTH) / originalWidth);
+        pipeline = pipeline.resize({ width: TARGET_WIDTH });
+        resized = true;
       }
       
-      // Calculate new height maintaining aspect ratio
-      const afterWidth = TARGET_WIDTH;
-      const afterHeight = Math.round((originalHeight * TARGET_WIDTH) / originalWidth);
-
-      // Perform resize and format compression
-      const imagePipeline = sharp(backupPath).resize({ width: TARGET_WIDTH });
-      
-      // Save in WebP format
-      await imagePipeline.webp({ quality: 82 }).toFile(filePath);
+      // Re-save as webp at quality 82 to the original path in public/
+      await pipeline.webp({ quality: 82 }).toFile(filePath);
       
       const newStats = fs.statSync(filePath);
       const afterKB = (newStats.size / 1024).toFixed(2);
@@ -125,7 +107,7 @@ async function main() {
       report.push({
         file,
         status: 'Optimized',
-        reason: `Resized and compressed`,
+        reason: resized ? `Resized to ${TARGET_WIDTH}px and compressed to WebP` : `Compressed in-place to WebP (original width <= ${TARGET_WIDTH}px)`,
         beforeWidth: originalWidth,
         beforeHeight: originalHeight,
         afterWidth,
@@ -153,9 +135,10 @@ async function main() {
     }
   }
 
-  // Print final markdown report
+  // Write final markdown report
   console.log('\n--- Final Image Optimization Report ---');
-  let mdTable = `| Filename | Status | Reason / Context | Original Dimensions | Optimized Dimensions | Original Size | Optimized Size | Reduction |\n`;
+  let mdTable = `# Image Optimization Report\n\n`;
+  mdTable += `| Filename | Status | Context / Details | Original Dimensions | Optimized Dimensions | Original Size | Optimized Size | Reduction |\n`;
   mdTable += `| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n`;
   
   for (const item of report) {
