@@ -172,6 +172,8 @@ export function ProductCard({
               <img
                 src={imgSrc}
                 alt={p.name}
+                width={400}
+                height={400}
                 loading="lazy"
                 decoding="async"
                 className="pcard__img absolute inset-0 w-full h-full object-cover"

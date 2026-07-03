@@ -71,7 +71,12 @@ export function resolveProductImage(path: string | undefined, productName?: stri
   const filename = path.split("/").pop()?.trim() || "";
   if (localImages[filename]) return localImages[filename];
 
-  if (path.startsWith("/")) return path;
+  if (path.startsWith("/")) {
+    if (path.match(/\.(png|jpg|jpeg)$/i)) {
+      return path.replace(/\.(png|jpg|jpeg)$/i, ".webp");
+    }
+    return path;
+  }
   return fallback;
 }
 

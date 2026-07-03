@@ -3,17 +3,27 @@ import path from 'path';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-// Load local env if available
-const envPath = path.resolve('.env.local');
+// Load env files if available
 let config = {};
-if (fs.existsSync(envPath)) {
-  const envLocal = fs.readFileSync(envPath, 'utf-8');
-  envLocal.split('\n').forEach(line => {
-    const parts = line.split('=');
-    if (parts.length === 2) {
-      config[parts[0].trim()] = parts[1].trim();
-    }
-  });
+const envFiles = ['.env', '.env.local'];
+for (const file of envFiles) {
+  const envPath = path.resolve(file);
+  if (fs.existsSync(envPath)) {
+    const envContent = fs.readFileSync(envPath, 'utf-8');
+    envContent.split(/\r?\n/).forEach(line => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) return;
+      const eqIdx = trimmed.indexOf('=');
+      if (eqIdx > 0) {
+        const key = trimmed.slice(0, eqIdx).trim();
+        let value = trimmed.slice(eqIdx + 1).trim();
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.slice(1, -1);
+        }
+        config[key] = value;
+      }
+    });
+  }
 }
 
 // Retrieve from config or process.env
@@ -25,8 +35,8 @@ const messagingSenderId = config.VITE_FIREBASE_MESSAGING_SENDER_ID || process.en
 const appId = config.VITE_FIREBASE_APP_ID || process.env.VITE_FIREBASE_APP_ID;
 
 if (!apiKey || !projectId) {
-  console.error("Error: Missing Firebase environment variables. Cannot generate sitemap dynamically.");
-  process.exit(1);
+  console.warn("Warning: Missing Firebase environment variables. Skipping dynamic sitemap generation for local build.");
+  process.exit(0);
 }
 
 const firebaseConfig = {

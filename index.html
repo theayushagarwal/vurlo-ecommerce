@@ -11,6 +11,14 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/icon-192.png" />
 
+    <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Preload Hero Image for LCP Optimization -->
+    <link rel="preload" as="image" href="/aura-rgb-1.webp" fetchpriority="high" />
+
     <title>Vurlo – Premium Ambient Lighting & Aesthetic Room Decor India</title>
     <meta
       name="description"
@@ -41,7 +49,11 @@
       "name": "Vurlo",
       "url": "https://vurlo.store/",
       "logo": "https://vurlo.store/icon-192.png",
-      "sameAs": []
+      "sameAs": [
+        "https://instagram.com/vurlo.store",
+        "https://twitter.com/vurlostore",
+        "https://youtube.com/@vurlo"
+      ]
     }
     </script>
     <meta property="og:locale" content="en_IN" />
@@ -52,7 +64,6 @@
     <meta property="twitter:title" content="Vurlo – Premium Ambient Lighting & Aesthetic Room Decor" />
     <meta property="twitter:description" content="Premium RGB lights, sunset lamps, galaxy projectors & aesthetic room decor. Free shipping across India." />
     <meta property="twitter:image" content="https://vurlo.store/preview.jpg" />
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J6MCZS5VTY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -72,6 +83,7 @@
           <a href="/shop">Shop</a>
           <a href="/contact">Contact</a>
           <a href="/search">Search</a>
+          <a href="/llms.txt">AI Catalog</a>
         </nav>
       </header>
       <main>
@@ -94,15 +106,46 @@
         <section>
           <h2>Our Products</h2>
           <ul>
-            <li><a href="/product/sunset-glow-projection-lamp">Sunset Projection Lamp – RGB Ambient Light for Gaming Setup</a></li>
-            <li><a href="/product/orbit-galaxy-projector">Galaxy Projector – Nebula Night Light for Bedroom</a></li>
-            <li><a href="/product/lunar-wooden-3d-moon-lamp">3D Moon Lamp with Wooden Base – Ambient Bedroom Light</a></li>
-            <li><a href="/product/crystal-aura-lamp">Crystal Ball Night Lamp – 3D Laser Engraved Ambient Light</a></li>
-            <li><a href="/product/aquawave-projector-lamp">AquaWave Ocean Wave Projector Lamp – Kinetic RGB Light</a></li>
-            <li><a href="/product/aura-rgb-led-strip-lights">RGB LED Strip Lights – Gaming Setup Backlighting Kit</a></li>
-            <li><a href="/product/mistflow-ambient-humidifier-lamp">MistFlow Humidifier Lamp – Cool Mist Ambient Desk Light</a></li>
-            <li><a href="/product/infinity-bloom-lamp">Infinity Bloom Tulip Lamp – Handmade Mirror Night Light</a></li>
-            <li><a href="/product/panda-glow-lamp">Panda Night Lamp – Cute LED Ambient Light for Bedroom</a></li>
+            <li>
+              <a href="/product/sunset-glow-projection-lamp">Sunset Projection Lamp – RGB Ambient Light</a> - ₹699
+              <p>Viral RGB sunset light with HD crystal lens, heavy aluminum base, and 360-degree rotation. Perfect projection halo for content creators, photography, and bedroom lighting.</p>
+            </li>
+            <li>
+              <a href="/product/orbit-galaxy-projector">Galaxy Projector – Nebula Night Light</a> - ₹1,499
+              <p>Smart nebula ceiling projector that projects HD moving nebula clouds and laser stars. Customize RGB colors, rotation speed, and brightness via wireless remote.</p>
+            </li>
+            <li>
+              <a href="/product/lunar-wooden-3d-moon-lamp">3D Moon Lamp with Wooden Base</a> - ₹699
+              <p>Realistic 3D printed lunar surface night light resting on a premium solid wood base. Toggle between adjustable warm yellow and cool white modes.</p>
+            </li>
+            <li>
+              <a href="/product/crystal-aura-lamp">Crystal Ball Night Lamp – 3D Laser Engraved</a> - ₹699
+              <p>Heavy solid glass sphere with high-precision 3D internal laser engravings (Saturn, Moon, or Galaxy) on a warm LED wooden base that projects patterns on the ceiling.</p>
+            </li>
+            <li>
+              <a href="/product/aquawave-projector-lamp">AquaWave Ocean Wave Projector Lamp</a> - ₹899
+              <p>Casts organic moving water ripple patterns on walls. Crafted with a premium faceted crystal acrylic shade and a natural wooden base. Includes multiple RGB color settings.</p>
+            </li>
+            <li>
+              <a href="/product/aura-rgb-led-strip-lights">RGB LED Strip Lights – Gaming Setup Backlighting</a> - ₹499
+              <p>Spanning 3.5 meters, this self-adhesive smart strip light outlines desks or beds with millions of RGB colors. Built-in microphone for real-time sound-sync audio reactive modes.</p>
+            </li>
+            <li>
+              <a href="/product/mistflow-ambient-humidifier-lamp">MistFlow Humidifier Lamp – Cool Mist Ambient Desk Light</a> - ₹699
+              <p>A 2-in-1 silent cool mist humidifier and soft warm desk light. Disperses moisture under 30dB. Aromatherapy oil compatible with automatic shutoff when empty.</p>
+            </li>
+            <li>
+              <a href="/product/infinity-bloom-lamp">Infinity Bloom Tulip Lamp – Handcrafted mirror night light</a> - ₹499 onwards
+              <p>Handcrafted glowing artificial tulip lamp available in Cloud frame, Rectangle vanity mirror, or Glass Terrarium Dome shapes, casting a warm cozy glow.</p>
+            </li>
+            <li>
+              <a href="/product/panda-glow-lamp">Panda Night Lamp – Cute LED Ambient Light</a> - ₹599
+              <p>Cute bedside companion crafted from child-safe, BPA-free soft silicone. Tap to toggle rotating RGB lights. USB rechargeable battery lasts up to 10 hours wirelessly.</p>
+            </li>
+            <li>
+              <a href="/product/luminary-bonsai-tree-lamp">Luminary Bonsai Tree Lamp – LED Fairy Light Tree</a> - ₹699
+              <p>Decorative warm LED bonsai tree lamp with 108 glowing pearls on bendable gold branches. Touch-sensitive base with dual USB or AA battery power backup.</p>
+            </li>
           </ul>
         </section>
 

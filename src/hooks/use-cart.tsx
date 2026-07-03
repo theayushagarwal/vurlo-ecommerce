@@ -293,9 +293,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           setCartItems(previousItems); // Rollback
           return;
         }
-        await setDoc(itemDocRef, { quantity: newQty }, { merge: true });
+        await setDoc(itemDocRef!, { quantity: newQty }, { merge: true });
       } else {
-        await setDoc(itemDocRef, {
+        await setDoc(itemDocRef!, {
           name: product.name,
           price: product.price,
           image: resolveProductImage(product.image, product.name),

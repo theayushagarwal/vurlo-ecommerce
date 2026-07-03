@@ -53,6 +53,17 @@ function CheckoutPage() {
   const [couponError, setCouponError] = useState<string | null>(null);
 
   useEffect(() => {
+    const scriptId = "razorpay-sdk";
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  useEffect(() => {
     if (savedAddress && usingSavedAddress) {
       setName(savedAddress.name);
       setAddress(savedAddress.address);

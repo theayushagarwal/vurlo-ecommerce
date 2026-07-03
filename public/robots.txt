@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://vurlo.store/sitemap.xml
+Sitemap: https://vurlo.store/llms.txt

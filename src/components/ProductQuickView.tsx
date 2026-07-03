@@ -230,7 +230,7 @@ export function ProductQuickView({ product, onClose }: ProductQuickViewProps) {
                 >
                   <img
                     src={img || resolveProductImage("", "")}
-                    alt=""
+                    alt={`${product.name} thumbnail ${idx + 1}`}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src = resolveProductImage("", "");
