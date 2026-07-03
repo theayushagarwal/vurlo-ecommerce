@@ -48,3 +48,6 @@ scratch/
 # Archives
 *.zip
 .env*
+
+# Image originals backup folder
+public/_originals/
