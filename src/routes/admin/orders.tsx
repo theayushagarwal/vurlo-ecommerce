@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import React, { Suspense } from "react";
 import { Loader2 } from "lucide-react";
 
-const AdminOrdersComponent = React.lazy(() => import("@/components/orders-component"));
+const AdminOrdersComponent = React.lazy(() => import("@/components/admin-orders-component"));
 
 export const Route = createFileRoute("/admin/orders")({
   component: AdminOrdersLazy,
