@@ -51,3 +51,6 @@ scratch/
 
 # Image originals backup folder
 public/_originals/
+
+# Lovable configuration
+.lovable/
